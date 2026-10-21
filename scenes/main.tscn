@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://d0s7e8pd42l0x"]
+
+[ext_resource type="PackedScene" uid="uid://cwpdekhugovw2" path="res://resource/platform_1/platform_1.tscn" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://m4qvj3tghodb" path="res://resource/platform_1/platform_3.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d4heumscjr45u" path="res://resource/platform_1/platform_2.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c8yyjfa4744nv" path="res://resource/player/player.tscn" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://d1p1kefburnpo" path="res://scripts/player.gd" id="5_tbgi4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_tbgi4"]
+sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
+
+[sub_resource type="Environment" id="Environment_tefeu"]
+background_mode = 2
+sky = SubResource("Sky_tbgi4")
+glow_enabled = true
+
+[node name="main" type="Node3D" unique_id=2076085836]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1593349053]
+environment = SubResource("Environment_tefeu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=749808842]
+transform = Transform3D(0.90512145, 0.42514813, 0.0021038393, -0.2928678, 0.6199002, 0.72797817, 0.30819425, -0.6595248, 0.6855971, 18.397463, 16.836641, 17.743397)
+shadow_enabled = true
+
+[node name="platform2" parent="." unique_id=632064589 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="platform4" parent="platform2" unique_id=16789033 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.333, 0, -19.912472)
+
+[node name="platform5" parent="platform2/platform4" unique_id=938764664 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.952855, 0.25, 0.042000026)
+
+[node name="platform1" parent="platform2" unique_id=1342915857 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.911913, -2.3841858e-07, -0.001783371)
+
+[node name="platform3" parent="platform2/platform1" unique_id=1082491381 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.945828, 0.25, -0.223)
+
+[node name="platform2" parent="platform2" unique_id=352810272 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 50.215927, 0, 0)
+
+[node name="platform4" parent="platform2/platform2" unique_id=40876305 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3247261, -0.08754363, -19.829151)
+
+[node name="platform5" parent="platform2/platform2/platform4" unique_id=808277102 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.950197, 0.25, 0.041999817)
+
+[node name="platform1" parent="platform2/platform2" unique_id=368862369 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.00389, 0, 9.1013135e-09)
+
+[node name="platform3" parent="platform2/platform2/platform1" unique_id=54814994 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0521755, 0.25, -0.22299999)
+
+[node name="platform4" parent="." unique_id=1269928762 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.58034, 5.4283442, 25.328442)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="platform4" unique_id=510504539]
+transform = Transform3D(0.9938257, 0.04538142, 0.101247706, -0.095974036, 0.8094975, 0.5792261, -0.055673666, -0.58536696, 0.80885476, 0.44415665, -0.54077244, -1.4716854)
+light_energy = 7.986
+light_indirect_energy = 0.0
+shadow_enabled = true
+spot_range = 11.21
+spot_angle = 27.25
+
+[node name="platform5" parent="." unique_id=2032933629 instance=ExtResource("3_tefeu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 55.04205, 5.417008, 19.8491)
+
+[node name="platform6" parent="." unique_id=711071562 instance=ExtResource("3_tefeu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 46.03714, 5.418358, 19.81222)
+
+[node name="platform7" parent="." unique_id=13062609 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 50.55947, 10.847863, 19.837658)
+
+[node name="player" parent="." unique_id=1503521986 instance=ExtResource("4_o6xl0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6695056, 1.3604136, -22.040895)
+script = ExtResource("5_tbgi4")
+
+[node name="platform3" parent="." unique_id=1319988672 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.657364, 5.5, -0.025098562)
+
+[node name="platform8" parent="." unique_id=1359927015 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.251476, 5.4999995, -3.2233157)
+
+[node name="platform9" parent="." unique_id=814799023 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.014431, 5.4999995, 2.6623735)

@@ -32,12 +32,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027759075, 0, 0)
 mesh = SubResource("SphereMesh_lq4fy")
 material = SubResource("StandardMaterial3D_nky03")
 
-[node name="right hand" type="CSGMesh3D" parent="body" unique_id=2023945880]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.581625, -0.05844724, -0.3674028)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1448226597]
+
+[node name="right hand" type="CSGMesh3D" parent="Camera3D" unique_id=2023945880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60938406, -0.05844724, -0.3674028)
 mesh = SubResource("BoxMesh_lq4fy")
 material = SubResource("StandardMaterial3D_j678g")
 
-[node name="left hand" type="CSGMesh3D" parent="body" unique_id=440346482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5830233, -0.058000028, -0.367)
+[node name="left hand" type="CSGMesh3D" parent="Camera3D" unique_id=440346482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55526423, -0.058000028, -0.367)
 mesh = SubResource("BoxMesh_lq4fy")
 material = SubResource("StandardMaterial3D_j678g")
