@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bderv5dxgvu18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4obp8"]
+size = Vector3(1.0040283, 0.9812317, 0.98394775)
+
+[sub_resource type="PrismMesh" id="PrismMesh_lq4fy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nky03"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="enemy" type="CharacterBody3D" unique_id=475210885]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1504087665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006862223, 0.9985051, 0.07107544)
+shape = SubResource("BoxShape3D_4obp8")
+debug_color = Color(0, 0.46532732, 0.42871347, 0.41960785)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1347529682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.061241627)
+mesh = SubResource("PrismMesh_lq4fy")
+material = SubResource("StandardMaterial3D_nky03")
