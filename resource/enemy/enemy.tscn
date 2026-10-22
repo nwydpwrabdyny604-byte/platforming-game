@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bderv5dxgvu18"]
 
-[ext_resource type="Script" uid="uid://dupaw5ehmar7d" path="res://resource/enemy/enemy.gd" id="1_bapaq"]
+[ext_resource type="Script" uid="uid://dupaw5ehmar7d" path="res://scripts/enemy.gd" id="1_bapaq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4obp8"]
 size = Vector3(1.0040283, 0.9812317, 0.98394775)
@@ -26,11 +26,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.061241627)
 mesh = SubResource("PrismMesh_lq4fy")
 material = SubResource("StandardMaterial3D_nky03")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=688362895]
+[node name="enemy_vision" type="Area3D" parent="." unique_id=688362895]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1880115402]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="enemy_vision" unique_id=1880115402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0264564, 0)
 shape = SubResource("BoxShape3D_lq4fy")
 debug_color = Color(1, 0, 0, 1)
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="enemy_vision" to="." method="_on_area_3d_body_entered"]
