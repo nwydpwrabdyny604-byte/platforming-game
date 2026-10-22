@@ -8,7 +8,6 @@ size = Vector3(1.3351653, 0.9436035, 1.1113281)
 [sub_resource type="SphereMesh" id="SphereMesh_lq4fy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nky03"]
-transparency = 1
 albedo_color = Color(1.2742168, 1.2742168, 1.2742168, 0.90588236)
 albedo_texture = ExtResource("1_4w7l6")
 
@@ -16,7 +15,9 @@ albedo_texture = ExtResource("1_4w7l6")
 size = Vector3(0.2, 0.2, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j678g"]
-transparency = 1
+albedo_texture = ExtResource("1_4w7l6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w7l6"]
 albedo_texture = ExtResource("1_4w7l6")
 
 [node name="player" type="CharacterBody3D" unique_id=1503521986]
@@ -42,4 +43,4 @@ material = SubResource("StandardMaterial3D_j678g")
 [node name="left hand" type="CSGMesh3D" parent="Camera3D" unique_id=440346482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55526423, -0.058000028, -0.367)
 mesh = SubResource("BoxMesh_lq4fy")
-material = SubResource("StandardMaterial3D_j678g")
+material = SubResource("StandardMaterial3D_4w7l6")

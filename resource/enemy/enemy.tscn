@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://bderv5dxgvu18"]
 
+[ext_resource type="Script" uid="uid://dupaw5ehmar7d" path="res://resource/enemy/enemy.gd" id="1_bapaq"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_4obp8"]
 size = Vector3(1.0040283, 0.9812317, 0.98394775)
 
 [sub_resource type="PrismMesh" id="PrismMesh_lq4fy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nky03"]
-transparency = 1
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lq4fy"]
+size = Vector3(10, 1, 10)
+
 [node name="enemy" type="CharacterBody3D" unique_id=475210885]
+script = ExtResource("1_bapaq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1504087665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006862223, 0.9985051, 0.07107544)
@@ -20,3 +25,12 @@ debug_color = Color(0, 0.46532732, 0.42871347, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.061241627)
 mesh = SubResource("PrismMesh_lq4fy")
 material = SubResource("StandardMaterial3D_nky03")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=688362895]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1880115402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0264564, 0)
+shape = SubResource("BoxShape3D_lq4fy")
+debug_color = Color(1, 0, 0, 1)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

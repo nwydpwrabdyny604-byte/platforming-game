@@ -7,7 +7,6 @@ size = Vector3(10, 0.5, 5)
 size = Vector3(10, 0.5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nky03"]
-transparency = 1
 albedo_color = Color(0, 0.54901963, 1, 1)
 
 [node name="platform3" type="StaticBody3D" unique_id=938764664]
