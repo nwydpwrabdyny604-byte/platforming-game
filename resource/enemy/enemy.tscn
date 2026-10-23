@@ -14,6 +14,8 @@ albedo_color = Color(1, 0, 0, 1)
 size = Vector3(10, 1, 10)
 
 [node name="enemy" type="CharacterBody3D" unique_id=475210885]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_bapaq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1504087665]
@@ -27,6 +29,8 @@ mesh = SubResource("PrismMesh_lq4fy")
 material = SubResource("StandardMaterial3D_nky03")
 
 [node name="enemy_vision" type="Area3D" parent="." unique_id=688362895]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="enemy_vision" unique_id=1880115402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0264564, 0)

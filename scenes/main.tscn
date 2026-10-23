@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://m4qvj3tghodb" path="res://resource/platform_1/platform_3.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4heumscjr45u" path="res://resource/platform_1/platform_2.tscn" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c8yyjfa4744nv" path="res://resource/player/player.tscn" id="4_o6xl0"]
-[ext_resource type="Script" uid="uid://dtbrhdu8tinui" path="res://resource/bullet/Leftbullet.gd" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://dfffa5a66qxmj" path="res://icon.svg" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://b88y4wnaj6jgq" path="res://resource/bullet/bullet.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bderv5dxgvu18" path="res://resource/enemy/enemy.tscn" id="6_tefeu"]
-[ext_resource type="Script" uid="uid://ca3w83ppeloro" path="res://resource/bullet/Rightbullet.gd" id="8_choun"]
+[ext_resource type="Script" uid="uid://c2y8bxxm4c0u2" path="res://scripts/bulletmanager.gd" id="7_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +20,15 @@ sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
 background_mode = 2
 sky = SubResource("Sky_tbgi4")
 glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_eb6dy"]
+size = Vector3(0.2, 0.2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+albedo_texture = ExtResource("5_85g3d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
+albedo_texture = ExtResource("5_85g3d")
 
 [node name="main" type="Node3D" unique_id=2076085836]
 
@@ -94,6 +103,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.731771, 5.4999995, 4.43336
 [node name="player" parent="." unique_id=1503521986 instance=ExtResource("4_o6xl0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6695056, 1.3604136, -22.040895)
 
+[node name="right hand" type="CSGMesh3D" parent="player" unique_id=1747807071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60938406, -0.05844724, -0.3674028)
+mesh = SubResource("BoxMesh_eb6dy")
+material = SubResource("StandardMaterial3D_trceg")
+
+[node name="left hand" type="CSGMesh3D" parent="player" unique_id=1062336086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55526423, -0.058000028, -0.367)
+mesh = SubResource("BoxMesh_eb6dy")
+material = SubResource("StandardMaterial3D_a8y0u")
+
 [node name="enemies" type="Node3D" parent="." unique_id=1110706609]
 
 [node name="enemy" parent="enemies" unique_id=475210885 instance=ExtResource("6_tefeu")]
@@ -105,22 +124,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.175, 0, 0.536)
 [node name="enemy3" parent="enemies" unique_id=1979799745 instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.301, 0, -0.145)
 
-[node name="bullets" type="Node3D" parent="." unique_id=618300772]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6695056, 1.3604136, -22.040895)
+[node name="Bullets" type="Node3D" parent="." unique_id=1973941080]
 
-[node name="right bullet pivot2" type="Node3D" parent="bullets" unique_id=1494940888]
-script = ExtResource("8_choun")
+[node name="pivot" type="Node3D" parent="Bullets" unique_id=866410516]
+script = ExtResource("7_choun")
 
-[node name="Right bullet" parent="bullets/right bullet pivot2" unique_id=1042917278 instance=ExtResource("6_o6xl0")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.608623, -0.062126517, -0.6159992)
+[node name="bullet" parent="Bullets/pivot" unique_id=1042917278 instance=ExtResource("6_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2843052, 1.2993813, -21.437752)
 visible = false
 
-[node name="left bullet pivot" type="Node3D" parent="bullets" unique_id=1220570194]
-script = ExtResource("6_85g3d")
-
-[node name="Left bullet" parent="bullets/left bullet pivot" unique_id=694720526 instance=ExtResource("6_o6xl0")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.53969014, -0.06026578, -0.61626434)
-visible = false
-
-[connection signal="body_entered" from="bullets/right bullet pivot2/Right bullet" to="bullets/right bullet pivot2" method="_on_right_bullet_body_entered"]
-[connection signal="body_entered" from="bullets/left bullet pivot/Left bullet" to="bullets/left bullet pivot" method="_on_left_bullet_body_entered"]
+[connection signal="body_entered" from="Bullets/pivot/bullet" to="Bullets/pivot" method="_on_bullet_body_entered"]

@@ -1,7 +1,5 @@
 extends CharacterBody3D
 @onready var neck=$Camera3D
-var right_hand_position
-var left_hand_position
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var sensitive=0.003

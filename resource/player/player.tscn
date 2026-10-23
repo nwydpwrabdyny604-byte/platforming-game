@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dfffa5a66qxmj" path="res://icon.svg" id="1_4w7l6"]
 [ext_resource type="Script" uid="uid://d1p1kefburnpo" path="res://scripts/player.gd" id="1_qr20i"]
-[ext_resource type="Script" uid="uid://b1u4gidtkmmcp" path="res://resource/player/right_hand.gd" id="3_mg0q7"]
-[ext_resource type="Script" uid="uid://bt5h0gd0c1ijd" path="res://resource/player/left_hand.gd" id="4_5din7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nky03"]
 size = Vector3(1.3351653, 0.9436035, 1.1113281)
@@ -14,17 +12,10 @@ size = Vector3(1.3351653, 0.9436035, 1.1113281)
 albedo_color = Color(1.2742168, 1.2742168, 1.2742168, 0.90588236)
 albedo_texture = ExtResource("1_4w7l6")
 
-[sub_resource type="BoxMesh" id="BoxMesh_lq4fy"]
-size = Vector3(0.2, 0.2, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j678g"]
-albedo_texture = ExtResource("1_4w7l6")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w7l6"]
-albedo_texture = ExtResource("1_4w7l6")
-
 [node name="player" type="CharacterBody3D" unique_id=1503521986]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93206984, -0.077034056)
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_qr20i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=187346412]
@@ -38,15 +29,3 @@ mesh = SubResource("SphereMesh_lq4fy")
 material = SubResource("StandardMaterial3D_nky03")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1448226597]
-
-[node name="right hand" type="CSGMesh3D" parent="Camera3D" unique_id=2023945880]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60938406, -0.05844724, -0.3674028)
-mesh = SubResource("BoxMesh_lq4fy")
-material = SubResource("StandardMaterial3D_j678g")
-script = ExtResource("3_mg0q7")
-
-[node name="left hand" type="CSGMesh3D" parent="Camera3D" unique_id=440346482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55526423, -0.058000028, -0.367)
-mesh = SubResource("BoxMesh_lq4fy")
-material = SubResource("StandardMaterial3D_4w7l6")
-script = ExtResource("4_5din7")
