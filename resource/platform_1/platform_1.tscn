@@ -11,6 +11,8 @@ albedo_color = Color(0.33333334, 1, 0, 1)
 
 [node name="platform1" type="StaticBody3D" unique_id=632064589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02365613, 0)
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=591676920]
 shape = SubResource("BoxShape3D_j678g")

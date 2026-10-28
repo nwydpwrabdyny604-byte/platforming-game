@@ -100,8 +100,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.251476, 5.4999995, -4.5097
 [node name="platform9" parent="world" unique_id=814799023 instance=ExtResource("3_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.731771, 5.4999995, 4.433365)
 
+[node name="platform10" parent="world" unique_id=1547738910 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1160038, 5.5000005, -24.394081)
+
 [node name="player" parent="." unique_id=1503521986 instance=ExtResource("4_o6xl0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6695056, 1.3604136, -22.040895)
+collision_mask = 15
 
 [node name="right hand" type="CSGMesh3D" parent="player" unique_id=1747807071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60938406, -0.05844724, -0.3674028)
@@ -132,5 +136,3 @@ script = ExtResource("7_choun")
 [node name="bullet" parent="Bullets/pivot" unique_id=1042917278 instance=ExtResource("6_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2843052, 1.2993813, -21.437752)
 visible = false
-
-[connection signal="body_entered" from="Bullets/pivot/bullet" to="Bullets/pivot" method="_on_bullet_body_entered"]
