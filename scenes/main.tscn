@@ -101,19 +101,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.251476, 5.4999995, -4.5097
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.731771, 5.4999995, 4.433365)
 
 [node name="platform10" parent="world" unique_id=1547738910 instance=ExtResource("3_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1160038, 5.5000005, -24.394081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3180368, 5.5000005, -24.394081)
 
 [node name="player" parent="." unique_id=1503521986 instance=ExtResource("4_o6xl0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6695056, 1.3604136, -22.040895)
 collision_mask = 15
 
-[node name="right hand" type="CSGMesh3D" parent="player" unique_id=1747807071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60938406, -0.05844724, -0.3674028)
+[node name="hands" type="Node3D" parent="player" unique_id=1971014760]
+
+[node name="right hand" type="CSGMesh3D" parent="player/hands" unique_id=1747807071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60938406, -0.05844724, -0.36740303)
 mesh = SubResource("BoxMesh_eb6dy")
 material = SubResource("StandardMaterial3D_trceg")
 
-[node name="left hand" type="CSGMesh3D" parent="player" unique_id=1062336086]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55526423, -0.058000028, -0.367)
+[node name="left hand" type="CSGMesh3D" parent="player/hands" unique_id=1062336086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5552643, -0.058000088, -0.36700058)
 mesh = SubResource("BoxMesh_eb6dy")
 material = SubResource("StandardMaterial3D_a8y0u")
 
@@ -132,6 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.301, 0, -0.145)
 
 [node name="pivot" type="Node3D" parent="Bullets" unique_id=866410516]
 script = ExtResource("7_choun")
+bullet_scene = ExtResource("6_o6xl0")
 
 [node name="bullet" parent="Bullets/pivot" unique_id=1042917278 instance=ExtResource("6_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2843052, 1.2993813, -21.437752)

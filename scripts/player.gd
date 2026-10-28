@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @onready var neck=$Camera3D
-const SPEED = 5.0
+@onready var hands=$hands
+var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var sensitive=0.003
 func _ready() -> void:
@@ -30,4 +31,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x*sensitive)
 		neck.rotate_x(-event.relative.y*sensitive)
+		hands.rotate_x(-event.relative.y*sensitive)
 		neck.rotation.x=clamp(neck.rotation.x,deg_to_rad(-90),deg_to_rad(90))
+		hands.rotation.x=clamp(hands.rotation.x,deg_to_rad(-90),deg_to_rad(90))
+	if event is InputEventKey:
+		if event.is_action_pressed("speed up"):
+			SPEED =8
+		elif event.is_action_released("speed up"):
+			SPEED =5

@@ -1,18 +1,19 @@
 extends Node3D
-
-@onready var right_hand=$"../../player/right hand"
-@onready var left_hand=$"../../player/left hand"
+@onready var right_hand=$"../../player/hands/right hand"
+@onready var left_hand=$"../../player/hands/left hand"
 @onready var player=$"../../player"
-var bullet_scene=preload("res://resource/bullet/bullet.tscn")
+@export var bullet_scene:PackedScene
 
 func add_bullet_left_hand()->void:
 	var bullet=bullet_scene.instantiate()
 	bullet.global_transform=left_hand.global_transform
+	bullet.direction=left_hand.global_transform.basis.z.normalized()
 	get_parent().add_child(bullet)
 
 func add_bullet_right_hand()->void:
 	var bullet=bullet_scene.instantiate()
 	bullet.global_transform=right_hand.global_transform
+	bullet.direction=right_hand.global_transform.basis.z.normalized()
 	get_parent().add_child(bullet)
 	
 func _process(delta: float) -> void:
